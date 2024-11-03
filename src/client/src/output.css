@@ -664,11 +664,11 @@ video {
 }
 
 .rounded-lg {
-  border-radius: var(--radius);
+  border-radius: 0.5rem;
 }
 
 .rounded-md {
-  border-radius: calc(var(--radius) - 2px);
+  border-radius: 0.375rem;
 }
 
 .border {
