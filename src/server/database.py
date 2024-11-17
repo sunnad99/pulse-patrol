@@ -1,25 +1,13 @@
-import urllib
-
+from config import (
+    POSTGRES_DB,
+    POSTGRES_HOST,
+    POSTGRES_USER_ENCODED,
+    POSTGRES_PORT,
+    POSTGRES_PASSWORD_ENCODED,
+)
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
-
-# TODO: Move the configurations into a config.py file in the future
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-POSTGRES_USER = os.getenv("POSTGRES_USER")
-POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
-POSTGRES_HOST = os.getenv("POSTGRES_HOST")
-POSTGRES_PORT = os.getenv("POSTGRES_PORT")
-POSTGRES_DB = os.getenv("POSTGRES_DB")
-
-# URL-encode the user and password
-POSTGRES_USER_ENCODED = urllib.parse.quote_plus(POSTGRES_USER)
-POSTGRES_PASSWORD_ENCODED = urllib.parse.quote_plus(POSTGRES_PASSWORD)
 
 # Construct the database URL
 SQLALCHEMY_DATABASE_URL = (
